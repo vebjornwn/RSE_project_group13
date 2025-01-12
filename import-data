@@ -245,21 +245,21 @@ curl -s -o /dev/null -X POST \
   "entities":[
     {
       "id":"urn:ngsi-ld:Product:001", "type":"Product",
-      "name":{"type":"Text", "value":"Apples"},
+      "name":{"type":"Text", "value":"San Miguel"},
       "size":{"type":"Text", "value": "S"},
-      "price":{"type":"Integer", "value": 99}
+      "price":{"type":"Integer", "value": 500}
     },
     {
       "id":"urn:ngsi-ld:Product:002", "type":"Product",
-      "name":{"type":"Text", "value":"Bananas"},
+      "name":{"type":"Text", "value":"Café Solo"},
       "size":{"type":"Text", "value": "M"},
-      "price":{"type":"Integer", "value": 1099}
+      "price":{"type":"Integer", "value": 119}
     },
     {
       "id":"urn:ngsi-ld:Product:003", "type":"Product",
-      "name":{"type":"Text", "value":"Coconuts"},
+      "name":{"type":"Text", "value":"Coca Llanda"},
       "size":{"type":"Text", "value": "M"},
-      "price":{"type":"Integer", "value": 1499}
+      "price":{"type":"Integer", "value": 169}
     },
     {
       "id":"urn:ngsi-ld:Product:004", "type":"Product",
@@ -428,6 +428,37 @@ curl -s -o /dev/null -X POST \
 
 #
 # Ensure that actuators are minimally provisioned.
+
+#!/bin/bash"
+
+# Update Store Entities and their associated devices
+curl -s -o /dev/null -X POST \
+  'http://orion:1026/v2/op/update' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "actionType": "append",
+    "entities": [
+      {
+        "id": "urn:ngsi-ld:Bell:001",
+        "type": "Alert",
+        "name": { "type": "Text", "value": "New Customer Alert" },
+        "state": { "type": "Text", "value": "quiet" }
+      },
+      {
+        "id": "urn:ngsi-ld:Door:001",
+        "type": "Toilet",
+        "name": { "type": "Text", "value": "Toilet Door" },
+        "state": { "type": "Text", "value": "free" }
+      },
+      {
+        "id": "urn:ngsi-ld:Lamp:001",
+        "type": "Light",
+        "name": { "type": "Text", "value": "Main Entrance Lights" },
+        "state": { "type": "Text", "value": "off" }
+      }
+    ]
+}'
+
 #
 curl -X POST \
   'http://orion:1026/v2/op/update' \
