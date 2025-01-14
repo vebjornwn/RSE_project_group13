@@ -133,7 +133,43 @@ curl -s -o /dev/null -X POST \
        {"name": "supportedProtocol", "type": "Text", "value": ["ul20"]},
        {"name": "refStore", "type": "Relationship", "value": "urn:ngsi-ld:Store:001"}
      ]
-   }
+   },
+   {
+     "device_id":   "co2sensor001",
+     "entity_name": "CO2:001",
+     "entity_type": "CO2Sensor",
+     "protocol":    "PDI-IoTA-UltraLight",
+     "transport":   "HTTP",
+     "endpoint":    "'"http://iot-sensors:$TUTORIAL_DUMMY_DEVICE_PORT/iot/co2sensor001"'",
+     "attributes": [
+       { "object_id": "c", "name":"co2", "type":"Float"}
+     ],
+     "static_attributes": [
+       {"name": "category", "type":"Text", "value": ["sensor"]},
+       {"name": "controlledProperty", "type": "Text", "value": "CO2 level"},
+       {"name": "function", "type": "Text", "value":["sensing"]},
+       {"name": "supportedProtocol", "type": "Text", "value": ["ul20"]},
+       {"name": "refStore", "type": "Relationship", "value": "urn:ngsi-ld:Store:001"}
+     ]
+   },
+   {
+     "device_id":   "humidity001",
+     "entity_name": "Humidity:001",
+     "entity_type": "HumiditySensor",
+     "protocol":    "PDI-IoTA-UltraLight",
+     "transport":   "HTTP",
+     "endpoint":    "http://iot-sensors:$TUTORIAL_DUMMY_DEVICE_PORT/iot/humidity001",
+     "attributes": [
+       { "object_id": "h", "name":"humidity", "type":"Float"}
+     ],
+     "static_attributes": [
+       {"name": "category", "type":"Text", "value": ["sensor"]},
+       {"name": "controlledProperty", "type": "Text", "value": "humidity"},
+       {"name": "function", "type": "Text", "value":["sensing"]},
+       {"name": "supportedProtocol", "type": "Text", "value": ["ul20"]},
+       {"name": "refStore", "type": "Relationship", "value": "urn:ngsi-ld:Store:001"}
+     ]
+    }
   ]
 }'
 
@@ -264,7 +300,43 @@ curl -s -o /dev/null -X POST \
        {"name": "supportedProtocol", "type": "Text", "value": ["ul20"]},
        {"name": "refStore", "type": "Relationship", "value": "urn:ngsi-ld:Store:002"}
      ]
-   }
+   },
+   {
+     "device_id":   "co2sensor002",
+     "entity_name": "CO2:002",
+     "entity_type": "CO2Sensor",
+     "protocol":    "PDI-IoTA-UltraLight",
+     "transport":   "HTTP",
+     "endpoint":    "'"http://iot-sensors:$TUTORIAL_DUMMY_DEVICE_PORT/iot/co2sensor002"'",
+     "attributes": [
+       { "object_id": "c", "name":"co2", "type":"Float"}
+     ],
+     "static_attributes": [
+       {"name": "category", "type":"Text", "value": ["sensor"]},
+       {"name": "controlledProperty", "type": "Text", "value": "CO2 level"},
+       {"name": "function", "type": "Text", "value":["sensing"]},
+       {"name": "supportedProtocol", "type": "Text", "value": ["ul20"]},
+       {"name": "refStore", "type": "Relationship", "value": "urn:ngsi-ld:Store:002"}
+     ]
+   },
+   {
+     "device_id":   "humidity002",
+     "entity_name": "Humidity:002",
+     "entity_type": "HumiditySensor",
+     "protocol":    "PDI-IoTA-UltraLight",
+     "transport":   "HTTP",
+     "endpoint":    "http://iot-sensors:$TUTORIAL_DUMMY_DEVICE_PORT/iot/humidity002",
+     "attributes": [
+       { "object_id": "h", "name":"humidity", "type":"Float"}
+     ],
+     "static_attributes": [
+       {"name": "category", "type":"Text", "value": ["sensor"]},
+       {"name": "controlledProperty", "type": "Text", "value": "humidity"},
+       {"name": "function", "type": "Text", "value":["sensing"]},
+       {"name": "supportedProtocol", "type": "Text", "value": ["ul20"]},
+       {"name": "refStore", "type": "Relationship", "value": "urn:ngsi-ld:Store:002"}
+     ]
+    }
   ]
 }
 '
@@ -372,6 +444,60 @@ curl -s -o /dev/null -X POST \
           {"name": "supportedUnits", "type": "Text", "value": "CDL"},
           {"name": "refStore", "type": "Relationship","value": "urn:ngsi-ld:Store:003"}
     	]
+    },
+    {
+     "device_id":   "temperature003",
+     "entity_name": "Temperature:003",
+     "entity_type": "TemperatureSensor",
+     "protocol":    "PDI-IoTA-UltraLight",
+     "transport":   "HTTP",
+     "endpoint":    "'"http://iot-sensors:$TUTORIAL_DUMMY_DEVICE_PORT/iot/temperature003"'",
+     "attributes": [
+       { "object_id": "t", "name":"temperature", "type":"Float"}
+     ],
+     "static_attributes": [
+       {"name": "category", "type":"Text", "value": ["sensor"]},
+       {"name": "controlledProperty", "type": "Text", "value": "temperature"},
+       {"name": "function", "type": "Text", "value":["sensing"]},
+       {"name": "supportedProtocol", "type": "Text", "value": ["ul20"]},
+       {"name": "refStore", "type": "Relationship", "value": "urn:ngsi-ld:Store:003"}
+     ]
+   },
+   {
+     "device_id":   "co2sensor003",
+     "entity_name": "CO2:003",
+     "entity_type": "CO2Sensor",
+     "protocol":    "PDI-IoTA-UltraLight",
+     "transport":   "HTTP",
+     "endpoint":    "'"http://iot-sensors:$TUTORIAL_DUMMY_DEVICE_PORT/iot/co2sensor003"'",
+     "attributes": [
+       { "object_id": "c", "name":"co2", "type":"Float"}
+     ],
+     "static_attributes": [
+       {"name": "category", "type":"Text", "value": ["sensor"]},
+       {"name": "controlledProperty", "type": "Text", "value": "CO2 level"},
+       {"name": "function", "type": "Text", "value":["sensing"]},
+       {"name": "supportedProtocol", "type": "Text", "value": ["ul20"]},
+       {"name": "refStore", "type": "Relationship", "value": "urn:ngsi-ld:Store:003"}
+     ]
+   },
+   {
+     "device_id":   "humidity003",
+     "entity_name": "Humidity:003",
+     "entity_type": "HumiditySensor",
+     "protocol":    "PDI-IoTA-UltraLight",
+     "transport":   "HTTP",
+     "endpoint":    "http://iot-sensors:$TUTORIAL_DUMMY_DEVICE_PORT/iot/humidity003",
+     "attributes": [
+       { "object_id": "h", "name":"humidity", "type":"Float"}
+     ],
+     "static_attributes": [
+       {"name": "category", "type":"Text", "value": ["sensor"]},
+       {"name": "controlledProperty", "type": "Text", "value": "humidity"},
+       {"name": "function", "type": "Text", "value":["sensing"]},
+       {"name": "supportedProtocol", "type": "Text", "value": ["ul20"]},
+       {"name": "refStore", "type": "Relationship", "value": "urn:ngsi-ld:Store:003"}
+     ]
     }
   ]
 }
@@ -479,6 +605,60 @@ curl -s -o /dev/null -X POST \
           {"name": "supportedUnits", "type": "Text", "value": "CDL"},
           {"name": "refStore", "type": "Relationship","value": "urn:ngsi-ld:Store:004"}
     	]
+    },
+    {
+     "device_id":   "temperature004",
+     "entity_name": "Temperature:004",
+     "entity_type": "TemperatureSensor",
+     "protocol":    "PDI-IoTA-UltraLight",
+     "transport":   "HTTP",
+     "endpoint":    "'"http://iot-sensors:$TUTORIAL_DUMMY_DEVICE_PORT/iot/temperature004"'",
+     "attributes": [
+       { "object_id": "t", "name":"temperature", "type":"Float"}
+     ],
+     "static_attributes": [
+       {"name": "category", "type":"Text", "value": ["sensor"]},
+       {"name": "controlledProperty", "type": "Text", "value": "temperature"},
+       {"name": "function", "type": "Text", "value":["sensing"]},
+       {"name": "supportedProtocol", "type": "Text", "value": ["ul20"]},
+       {"name": "refStore", "type": "Relationship", "value": "urn:ngsi-ld:Store:004"}
+     ]
+   },
+   {
+     "device_id":   "co2sensor004",
+     "entity_name": "CO2:004",
+     "entity_type": "CO2Sensor",
+     "protocol":    "PDI-IoTA-UltraLight",
+     "transport":   "HTTP",
+     "endpoint":    "'"http://iot-sensors:$TUTORIAL_DUMMY_DEVICE_PORT/iot/co2sensor004"'",
+     "attributes": [
+       { "object_id": "c", "name":"co2", "type":"Float"}
+     ],
+     "static_attributes": [
+       {"name": "category", "type":"Text", "value": ["sensor"]},
+       {"name": "controlledProperty", "type": "Text", "value": "CO2 level"},
+       {"name": "function", "type": "Text", "value":["sensing"]},
+       {"name": "supportedProtocol", "type": "Text", "value": ["ul20"]},
+       {"name": "refStore", "type": "Relationship", "value": "urn:ngsi-ld:Store:004"}
+     ]
+   },
+   {
+     "device_id":   "humidity004",
+     "entity_name": "Humidity:004",
+     "entity_type": "HumiditySensor",
+     "protocol":    "PDI-IoTA-UltraLight",
+     "transport":   "HTTP",
+     "endpoint":    "http://iot-sensors:$TUTORIAL_DUMMY_DEVICE_PORT/iot/humidity004",
+     "attributes": [
+       { "object_id": "h", "name":"humidity", "type":"Float"}
+     ],
+     "static_attributes": [
+       {"name": "category", "type":"Text", "value": ["sensor"]},
+       {"name": "controlledProperty", "type": "Text", "value": "humidity"},
+       {"name": "function", "type": "Text", "value":["sensing"]},
+       {"name": "supportedProtocol", "type": "Text", "value": ["ul20"]},
+       {"name": "refStore", "type": "Relationship", "value": "urn:ngsi-ld:Store:004"}
+     ]
     }
   ]
 }
