@@ -51,14 +51,15 @@ curl -s -o /dev/null -X POST \
  "devices": [
    {
       "device_id": "bell001",
-      "entity_name": "NewCustomerAlert:001",
-      "entity_type": "Alert",
+      "entity_name": "Bell:001",
+      "entity_type": "Bell",
       "protocol": "PDI-IoTA-UltraLight",
       "transport": "HTTP",
       "endpoint": "'"http://iot-sensors:$TUTORIAL_DUMMY_DEVICE_PORT/iot/bell001"'",
-      "commands": [
-        {"name": "state", "type": "command"}
-      ],
+      {
+          "name": "ring",
+          "type": "command"
+        }
       "static_attributes": [
         {"name": "category", "type":"Text", "value": ["actuator"]},
         {"name": "controlledProperty", "type": "Text", "value": "noiseLevel"},
@@ -69,8 +70,8 @@ curl -s -o /dev/null -X POST \
    },
    {
       "device_id": "door001",
-      "entity_name": "Toilet:001",
-      "entity_type": "Toilet",
+      "entity_name": "Door:001",
+      "entity_type": "Dooe",
       "protocol": "PDI-IoTA-UltraLight",
       "transport": "HTTP",
       "endpoint": "'"http://iot-sensors:$TUTORIAL_DUMMY_DEVICE_PORT/iot/door001"'",
@@ -91,29 +92,49 @@ curl -s -o /dev/null -X POST \
         {"name": "refStore", "type": "Relationship", "value": "urn:ngsi-ld:Store:001"}
       ]
    },
-   {
+    {
       "device_id": "lamp001",
-      "entity_name": "Lights:001",
-      "entity_type": "Light",
+      "entity_name": "Lamp:001",
+      "entity_type": "Lamp",
       "protocol": "PDI-IoTA-UltraLight",
       "transport": "HTTP",
       "endpoint": "'"http://iot-sensors:$TUTORIAL_DUMMY_DEVICE_PORT/iot/lamp001"'",
-      "commands": [
-        {"name": "on", "type": "command"},
-        {"name": "off", "type": "command"}
-      ],
+       "commands": [ 
+        {"name": "on","type": "command"},
+        {"name": "off","type": "command"}
+       ],
       "attributes": [
-        {"object_id": "s", "name": "state", "type":"Text"},
+       	{"object_id": "s", "name": "state", "type":"Text"},
         {"object_id": "l", "name": "luminosity", "type":"Integer"}
-      ],
+       ],
       "static_attributes": [
         {"name": "category", "type":"Text", "value": ["actuator","sensor"]},
         {"name": "controlledProperty", "type": "Text", "value": "light"},
         {"name": "function", "type": "Text", "value":["onOff", "sensing"]},
-        {"name": "refStore", "type": "Relationship", "value": "urn:ngsi-ld:Store:001"}
-      ]
+          {"name": "supportedProtocol", "type": "Text", "value": ["ul20"]},
+          {"name": "supportedUnits", "type": "Text", "value": "CDL"},
+          {"name": "refStore", "type": "Relationship","value": "urn:ngsi-ld:Store:001"}
+    	]
+    },
+    {
+     "device_id":   "temperature001",
+     "entity_name": "Temperature:001",
+     "entity_type": "TemperatureSensor",
+     "protocol":    "PDI-IoTA-UltraLight",
+     "transport":   "HTTP",
+     "endpoint":    "'"http://iot-sensors:$TUTORIAL_DUMMY_DEVICE_PORT/iot/temperature001"'",
+     "attributes": [
+       { "object_id": "t", "name":"temperature", "type":"Float"}
+     ],
+     "static_attributes": [
+       {"name": "category", "type":"Text", "value": ["sensor"]},
+       {"name": "controlledProperty", "type": "Text", "value": "temperature"},
+       {"name": "function", "type": "Text", "value":["sensing"]},
+       {"name": "supportedProtocol", "type": "Text", "value": ["ul20"]},
+       {"name": "refStore", "type": "Relationship", "value": "urn:ngsi-ld:Store:001"}
+     ]
    }
- ]
+  ]
 }'
 
 
@@ -225,7 +246,25 @@ curl -s -o /dev/null -X POST \
           {"name": "supportedUnits", "type": "Text", "value": "CDL"},
           {"name": "refStore", "type": "Relationship","value": "urn:ngsi-ld:Store:002"}
     	]
-    }
+    },
+    {
+     "device_id":   "temperature002",
+     "entity_name": "Temperature:002",
+     "entity_type": "TemperatureSensor",
+     "protocol":    "PDI-IoTA-UltraLight",
+     "transport":   "HTTP",
+     "endpoint":    "'"http://iot-sensors:$TUTORIAL_DUMMY_DEVICE_PORT/iot/temperature002"'",
+     "attributes": [
+       { "object_id": "t", "name":"temperature", "type":"Float"}
+     ],
+     "static_attributes": [
+       {"name": "category", "type":"Text", "value": ["sensor"]},
+       {"name": "controlledProperty", "type": "Text", "value": "temperature"},
+       {"name": "function", "type": "Text", "value":["sensing"]},
+       {"name": "supportedProtocol", "type": "Text", "value": ["ul20"]},
+       {"name": "refStore", "type": "Relationship", "value": "urn:ngsi-ld:Store:002"}
+     ]
+   }
   ]
 }
 '

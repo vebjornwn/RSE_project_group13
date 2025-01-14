@@ -21,25 +21,25 @@ curl -s -o /dev/null -X POST \
       "id":"urn:ngsi-ld:Store:001","type":"Store",
       "address":{"type":"PostalAddress","value":{"streetAddress":"Carrer del Serpis 1","addressRegion":"Valencia","addressLocality":"Valencia","postalCode":"46022"}},
       "location":{"type":"geo:json","value":{"type":"Point","coordinates":[-0.358836,39.474344]}},
-      "name":{"type":"Text","value":"Serpis Market"}
+      "name":{"type":"Text","value":"Café del Sol"}
     },
     {
       "id":"urn:ngsi-ld:Store:002","type":"Store",
       "address":{"type":"PostalAddress","value":{"streetAddress":"Avinguda dels Tarongers 2","addressRegion":"Valencia","addressLocality":"Valencia","postalCode":"46021"}},
       "location":{"type":"geo:json","value":{"type":"Point","coordinates":[-0.3595,39.473]}},
-      "name":{"type":"Text","value":"Tarongers Store"}
+      "name":{"type":"Text","value":"La Taza Alegre"}
     },
     {
       "id":"urn:ngsi-ld:Store:003","type":"Store",
       "address":{"type":"PostalAddress","value":{"streetAddress":"Carrer de Ramon Llull 3","addressRegion":"Valencia","addressLocality":"Valencia","postalCode":"46022"}},
       "location":{"type":"geo:json","value":{"type":"Point","coordinates":[-0.359,39.4725]}},
-      "name":{"type":"Text","value":"Llull Supplies"}
+      "name":{"type":"Text","value":"El Rincón del Café"}
     },
     {
       "id":"urn:ngsi-ld:Store:004","type":"Store",
       "address":{"type":"PostalAddress","value":{"streetAddress":"Avinguda de Blasco Ibáñez 4","addressRegion":"Valencia","addressLocality":"Valencia","postalCode":"46010"}},
       "location":{"type":"geo:json","value":{"type":"Point","coordinates":[-0.3592,39.4738]}},
-      "name":{"type":"Text","value":"Blasco Market"}
+      "name":{"type":"Text","value":"Sabores de España"}
     }
   ]
 }'
@@ -245,57 +245,63 @@ curl -s -o /dev/null -X POST \
   "entities":[
     {
       "id":"urn:ngsi-ld:Product:001", "type":"Product",
-      "name":{"type":"Text", "value":"San Miguel"},
-      "size":{"type":"Text", "value": "S"},
-      "price":{"type":"Integer", "value": 500}
+      "name":{"type":"Text", "value":"Tortilla Española"},
+      "size":{"type":"Text", "value": "M"},
+      "price":{"type":"Integer", "value": 300}
     },
     {
       "id":"urn:ngsi-ld:Product:002", "type":"Product",
-      "name":{"type":"Text", "value":"Café Solo"},
-      "size":{"type":"Text", "value": "M"},
-      "price":{"type":"Integer", "value": 119}
+      "name":{"type":"Text", "value":"Café con Leche"},
+      "size":{"type":"Text", "value": "S"},
+      "price":{"type":"Integer", "value": 150}
     },
     {
       "id":"urn:ngsi-ld:Product:003", "type":"Product",
-      "name":{"type":"Text", "value":"Coca Llanda"},
-      "size":{"type":"Text", "value": "M"},
-      "price":{"type":"Integer", "value": 169}
+      "name":{"type":"Text", "value":"Croissant"},
+      "size":{"type":"Text", "value": "S"},
+      "price":{"type":"Integer", "value": 200}
     },
     {
       "id":"urn:ngsi-ld:Product:004", "type":"Product",
-      "name":{"type":"Text", "value":"Melons"},
-      "size":{"type":"Text", "value": "XL"},
-      "price":{"type":"Integer", "value": 5000}
+      "name":{"type":"Text", "value":"Churros con Chocolate"},
+      "size":{"type":"Text", "value": "L"},
+      "price":{"type":"Integer", "value": 400}
     },
     {
       "id":"urn:ngsi-ld:Product:005", "type":"Product",
-      "name":{"type":"Text", "value":"Kiwi Fruits"},
-      "size":{"type":"Text", "value": "S"},
-      "price":{"type":"Integer", "value": 99}
+      "name":{"type":"Text", "value":"Zumo de Naranja"},
+      "size":{"type":"Text", "value": "M"},
+      "price":{"type":"Integer", "value": 250}
     },
     {
       "id":"urn:ngsi-ld:Product:006", "type":"Product",
-      "name":{"type":"Text", "value":"Strawberries"},
-      "size":{"type":"Text", "value": "S"},
-      "price":{"type":"Integer", "value": 99}
+      "name":{"type":"Text", "value":"Bocadillo de Jamón"},
+      "size":{"type":"Text", "value": "L"},
+      "price":{"type":"Integer", "value": 500}
     },
     {
       "id":"urn:ngsi-ld:Product:007", "type":"Product",
-      "name":{"type":"Text", "value":"Raspberries"},
-      "size":{"type":"Text", "value": "S"},
-      "price":{"type":"Integer", "value": 99}
+      "name":{"type":"Text", "value":"Ensaladilla Rusa"},
+      "size":{"type":"Text", "value": "M"},
+      "price":{"type":"Integer", "value": 350}
     },
     {
       "id":"urn:ngsi-ld:Product:008", "type":"Product",
-      "name":{"type":"Text", "value":"Pineapples"},
-      "size":{"type":"Text", "value": "S"},
-      "price":{"type":"Integer", "value": 99}
+      "name":{"type":"Text", "value":"Tostada con Tomate"},
+      "size":{"type":"Text", "value": "M"},
+      "price":{"type":"Integer", "value": 200}
     },
     {
       "id":"urn:ngsi-ld:Product:009", "type":"Product",
-      "name":{"type":"Text", "value":"Oranges"},
+      "name":{"type":"Text", "value":"Caña de Cerveza"},
       "size":{"type":"Text", "value": "S"},
-      "price":{"type":"Integer", "value": 99}
+      "price":{"type":"Integer", "value": 250}
+    },
+    {
+      "id":"urn:ngsi-ld:Product:010", "type":"Product",
+      "name":{"type":"Text", "value":"Café Cortado"},
+      "size":{"type":"Text", "value": "S"},
+      "price":{"type":"Integer", "value": 150}
     }
   ]
 }'
@@ -489,6 +495,13 @@ curl -X POST \
       }
     },
     {
+      "id": "Temperature:001",
+      "type": "TemperatureSensor",
+      "refStore": {
+        "type": "Relationship","value": "urn:ngsi-ld:Store:001"
+      }
+    },
+    {
       "id": "Bell:002",
       "type": "Bell",
       "refStore": {
@@ -505,6 +518,13 @@ curl -X POST \
     {
       "id": "Lamp:002",
       "type": "Lamp",
+      "refStore": {
+        "type": "Relationship","value": "urn:ngsi-ld:Store:002"
+      }
+    },
+    {
+      "id": "Temperature:002",
+      "type": "TemperatureSensor",
       "refStore": {
         "type": "Relationship","value": "urn:ngsi-ld:Store:002"
       }
