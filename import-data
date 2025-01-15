@@ -21,7 +21,9 @@ curl -s -o /dev/null -X POST \
       "id":"urn:ngsi-ld:Store:001","type":"Store",
       "address":{"type":"PostalAddress","value":{"streetAddress":"Carrer del Serpis 1","addressRegion":"Valencia","addressLocality":"Valencia","postalCode":"46022"}},
       "location":{"type":"geo:json","value":{"type":"Point","coordinates":[-0.358836,39.474344]}},
-      "name":{"type":"Text","value":"Café del Sol"}
+      "name":{"type":"Text","value":"Café del Sol"},
+      "temperature": { "type": "Number","value": 16},
+      "relativeHumidity": {"type": "Number","value": 30}
     },
     {
       "id":"urn:ngsi-ld:Store:002","type":"Store",
@@ -101,30 +103,30 @@ curl -s -o /dev/null -X POST \
 
 # Add Weather and Twitter Responses for Store 2 using real sources
 #
-# curl -s -o /dev/null -X POST \
-#   'http://orion:1026/v2/registrations' \
-#   -H 'Content-Type: application/json' \
-#   -d '{
-#   "description": "Store:002 - Real Temperature and Humidity",
-#   "dataProvided": {
-#     "entities": [
-#       {
-#         "id": "urn:ngsi-ld:Store:002",
-#         "type": "Store"
-#       }
-#     ],
-#     "attrs": [
-#       "temperature",
-#       "relativeHumidity"
-#     ]
-#   },
-#   "provider": {
-#     "http": {
-#       "url": "http://context-provider:3000/proxy/weather/number/temperature:temp,relativeHumidity:humidity/berlin%2cde"
-#     },
-#      "legacyForwarding": true
-#   }
-# }'
+ curl -s -o /dev/null -X POST \
+   'http://orion:1026/v2/registrations' \
+   -H 'Content-Type: application/json' \
+   -d '{
+   "description": "Store:002 - Real Temperature and Humidity",
+   "dataProvided": {
+     "entities": [
+       {
+         "id": "urn:ngsi-ld:Store:002",
+         "type": "Store"
+       }
+     ],
+     "attrs": [
+       "temperature",
+       "relativeHumidity"
+     ]
+   },
+   "provider": {
+     "http": {
+       "url": "http://context-provider:3000/proxy/weather/number/temperature:temp,relativeHumidity:humidity/berlin%2cde"
+     },
+      "legacyForwarding": true
+   }
+ }'
 
 # curl -s -o /dev/null -X POST \
 #   'http://orion:1026/v2/registrations' \
@@ -551,6 +553,13 @@ curl -X POST \
       }
     },
     {
+      "id": "Temperature:003",
+      "type": "TemperatureSensor",
+      "refStore": {
+        "type": "Relationship","value": "urn:ngsi-ld:Store:003"
+      }
+    },
+    {
       "id": "Bell:004",
       "type": "Bell",
       "refStore": {
@@ -564,6 +573,13 @@ curl -X POST \
         "type": "Relationship","value": "urn:ngsi-ld:Store:004"
       }
     }, 
+    {
+      "id": "Temperature:004",
+      "type": "TemperatureSensor",
+      "refStore": {
+        "type": "Relationship","value": "urn:ngsi-ld:Store:004"
+      }
+    },
     {
       "id": "Lamp:004",
       "type": "Lamp",
