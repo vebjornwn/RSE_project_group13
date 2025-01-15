@@ -41,6 +41,8 @@ Inside this `tutorial` directory, **three files** must be replaced with the upda
 2. `device.pug` (in the `views` folder)  
 3. `device-monitor.pug` (in the `views` folder)
 
+Then restart the containter in the docker desktop
+
 ### 2.1 How to Update Each File
 
 1. Click the **Open File Editor** in the Docker container.  
