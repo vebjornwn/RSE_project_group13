@@ -58,19 +58,14 @@ curl -s -o /dev/null -X POST \
    "dataProvided": {
      "entities": [
        {
-         "id" : "urn:ngsi-ld:Store:001",
+         "id": "urn:ngsi-ld:Store:001",
          "type": "Store"
        }
      ],
      "attrs": [
-      "temperature", "relativeHumidity"
-    ]
-   },
-   "provider": {
-     "http": {
-       "url": "http://context-provider:3000/proxy/v1/random/weatherConditions"
-     },
-     "legacyForwarding": true
+       "temperature",
+       "relativeHumidity"
+     ]
    },
    "status": "active"
 }'
@@ -439,34 +434,6 @@ curl -s -o /dev/null -X POST \
 
 #!/bin/bash"
 
-# Update Store Entities and their associated devices
-curl -s -o /dev/null -X POST \
-  'http://orion:1026/v2/op/update' \
-  -H 'Content-Type: application/json' \
-  -d '{
-    "actionType": "append",
-    "entities": [
-      {
-        "id": "urn:ngsi-ld:Bell:001",
-        "type": "Alert",
-        "name": { "type": "Text", "value": "New Customer Alert" },
-        "state": { "type": "Text", "value": "quiet" }
-      },
-      {
-        "id": "urn:ngsi-ld:Door:001",
-        "type": "Toilet",
-        "name": { "type": "Text", "value": "Toilet Door" },
-        "state": { "type": "Text", "value": "free" }
-      },
-      {
-        "id": "urn:ngsi-ld:Lamp:001",
-        "type": "Light",
-        "name": { "type": "Text", "value": "Main Entrance Lights" },
-        "state": { "type": "Text", "value": "off" }
-      }
-    ]
-}'
-
 #
 curl -X POST \
   'http://orion:1026/v2/op/update' \
@@ -497,13 +464,6 @@ curl -X POST \
       }
     },
     {
-      "id": "Temperature:001",
-      "type": "TemperatureSensor",
-      "refStore": {
-        "type": "Relationship","value": "urn:ngsi-ld:Store:001"
-      }
-    },
-    {
       "id": "Bell:002",
       "type": "Bell",
       "refStore": {
@@ -520,13 +480,6 @@ curl -X POST \
     {
       "id": "Lamp:002",
       "type": "Lamp",
-      "refStore": {
-        "type": "Relationship","value": "urn:ngsi-ld:Store:002"
-      }
-    },
-    {
-      "id": "Temperature:002",
-      "type": "TemperatureSensor",
       "refStore": {
         "type": "Relationship","value": "urn:ngsi-ld:Store:002"
       }
@@ -589,5 +542,6 @@ curl -X POST \
     }
   ]
 }'  
+
 
 echo -e " \033[1;32mdone\033[0m"

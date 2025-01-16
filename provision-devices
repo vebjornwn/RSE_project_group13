@@ -50,48 +50,68 @@ curl -s -o /dev/null -X POST \
   -d '{
  "devices": [
    {
+     "device_id":   "motion001",
+     "entity_name": "Motion:001",
+     "entity_type": "Motion",
+     "protocol":    "PDI-IoTA-UltraLight",
+     "timezone":    "Europe/Berlin",
+     "attributes": [
+       { "object_id": "c", "name":"count", "type":"Integer"}
+      ],
+      "static_attributes": [
+          {"name": "category", "type":"Text", "value": ["sensor"]},
+          {"name": "controlledProperty", "type": "Text", "value": "motion"},
+          {"name": "function", "type": "Text", "value":["sensing"]},
+          {"name": "supportedProtocol", "type": "Text", "value": ["ul20"]},
+          {"name": "supportedUnits", "type": "Text", "value": "C62"},
+          {"name": "refStore", "type": "Relationship","value": "urn:ngsi-ld:Store:001"}
+      ]
+   },
+   {
       "device_id": "bell001",
       "entity_name": "Bell:001",
       "entity_type": "Bell",
       "protocol": "PDI-IoTA-UltraLight",
       "transport": "HTTP",
       "endpoint": "'"http://iot-sensors:$TUTORIAL_DUMMY_DEVICE_PORT/iot/bell001"'",
-      {
+       "commands": [ 
+        {
           "name": "ring",
           "type": "command"
         }
+       ],
       "static_attributes": [
-        {"name": "category", "type":"Text", "value": ["actuator"]},
-        {"name": "controlledProperty", "type": "Text", "value": "noiseLevel"},
-        {"name": "function", "type": "Text", "value":["onOff"]},
-        {"name": "supportedProtocol", "type": "Text", "value": ["ul20"]},
-        {"name": "refStore", "type": "Relationship", "value": "urn:ngsi-ld:Store:001"}
+          {"name": "category", "type":"Text", "value": ["actuator"]},
+          {"name": "controlledProperty", "type": "Text", "value": "noiseLevel"},
+          {"name": "function", "type": "Text", "value":["onOff"]},
+          {"name": "supportedProtocol", "type": "Text", "value": ["ul20"]},
+          {"name": "refStore", "type": "Relationship","value": "urn:ngsi-ld:Store:001"}
       ]
-   },
-   {
+    },
+    {
       "device_id": "door001",
       "entity_name": "Door:001",
-      "entity_type": "Dooe",
+      "entity_type": "Door",
       "protocol": "PDI-IoTA-UltraLight",
       "transport": "HTTP",
       "endpoint": "'"http://iot-sensors:$TUTORIAL_DUMMY_DEVICE_PORT/iot/door001"'",
-      "commands": [
-        {"name": "unlock", "type": "command"},
-        {"name": "open", "type": "command"},
-        {"name": "close", "type": "command"},
-        {"name": "lock", "type": "command"}
-      ],
-      "attributes": [
+       "commands": [ 
+        {"name": "unlock","type": "command"},
+        {"name": "open","type": "command"},
+        {"name": "close","type": "command"},
+        {"name": "lock","type": "command"}
+       ],
+       "attributes": [
         {"object_id": "s", "name": "state", "type":"Text"}
-      ],
+       ],
       "static_attributes": [
-        {"name": "category", "type":"Text", "value": ["actuator", "sensor"]},
-        {"name": "controlledProperty", "type": "Text", "value": "state"},
-        {"name": "function", "type": "Text", "value":["openClose", "eventNotification"]},
-        {"name": "supportedProtocol", "type": "Text", "value": ["ul20"]},
-        {"name": "refStore", "type": "Relationship", "value": "urn:ngsi-ld:Store:001"}
-      ]
-   },
+          {"name": "category", "type":"Text", "value": ["actuator", "sensor"]},
+          {"name": "controlledProperty", "type": "Text", "value": "state"},
+          {"name": "function", "type": "Text", "value":["openClose", "eventNotification"]},
+          {"name": "supportedProtocol", "type": "Text", "value": ["ul20"]},
+          {"name": "refStore", "type": "Relationship","value": "urn:ngsi-ld:Store:001"}
+       ]
+    }, 
     {
       "device_id": "lamp001",
       "entity_name": "Lamp:001",
@@ -108,9 +128,9 @@ curl -s -o /dev/null -X POST \
         {"object_id": "l", "name": "luminosity", "type":"Integer"}
        ],
       "static_attributes": [
-        {"name": "category", "type":"Text", "value": ["actuator","sensor"]},
-        {"name": "controlledProperty", "type": "Text", "value": "light"},
-        {"name": "function", "type": "Text", "value":["onOff", "sensing"]},
+          {"name": "category", "type":"Text", "value": ["actuator","sensor"]},
+          {"name": "controlledProperty", "type": "Text", "value": "light"},
+          {"name": "function", "type": "Text", "value":["onOff", "sensing"]},
           {"name": "supportedProtocol", "type": "Text", "value": ["ul20"]},
           {"name": "supportedUnits", "type": "Text", "value": "CDL"},
           {"name": "refStore", "type": "Relationship","value": "urn:ngsi-ld:Store:001"}

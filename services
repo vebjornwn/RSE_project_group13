@@ -129,16 +129,16 @@ stoppingContainers () {
 		echo "Stopping containers"
 		docker rm -f $CONTAINERS || true
 	fi
-	VOLUMES=$(docker volume ls -qf dangling=true) 
-	if [[ -n $VOLUMES ]]; then 
-		echo "Removing old volumes"
-		docker volume rm $VOLUMES || true
-	fi
-	NETWORKS=$(docker network ls  --filter "label=org.fiware=tutorial" -q) 
-	if [[ -n $NETWORKS ]]; then 
-		echo "Removing tutorial networks"
-		docker network rm $NETWORKS || true
-	fi
+	# VOLUMES=$(docker volume ls -qf dangling=true) 
+	# if [[ -n $VOLUMES ]]; then 
+	# 	echo "Removing old volumes"
+	# 	docker volume rm $VOLUMES || true
+	# fi
+	# NETWORKS=$(docker network ls  --filter "label=org.fiware=tutorial" -q) 
+	# if [[ -n $NETWORKS ]]; then 
+	# 	echo "Removing tutorial networks"
+	# 	docker network rm $NETWORKS || true
+	# fi
 }
 
 command="$1"
