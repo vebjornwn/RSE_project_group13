@@ -1,0 +1,1 @@
+Mount these volumes on the containers to be able to see the configured wirecloud workspace
